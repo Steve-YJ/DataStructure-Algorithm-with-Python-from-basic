@@ -86,7 +86,7 @@ def to_noris(binary):
                 noris_codes += str(0) + " " + str(0)
             elif binary[i] == str(0):
                 previous = str(0)
-                noris_codes += str('00') + " " + str(0)
+                noris_codes += str('00') + " " + str(0) 
             
     return noris_codes
 
