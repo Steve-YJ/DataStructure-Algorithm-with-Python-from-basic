@@ -23,4 +23,4 @@ while sum_ex > 0:
         sum_ex -= 10
 
 print('output: ', exchange)
-print('total_num_coin: ', sum(exchange))
+print('total_num_coin: ', sum(exchange)) 
