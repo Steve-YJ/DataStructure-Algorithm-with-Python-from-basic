@@ -18,41 +18,34 @@ print('input queue: ', queue)
 # sum = 0
 total = 0
 for i in range(c):
+    print('tern', i)
     sum = 0
-    # queue_0 = queue[0]
+    print("initialization sum: ", sum)
+    count = 0
     for i in range(len(queue)):  # loop four times
-        if (sum + queue[i]) < l:
-            sum += queue[i]
-            total += sum
-            # print('print sum:, ', sum)    
-        elif (sum + queue[i]) == l:
-            sum += queue[i]
-            total += sum
-            # print('total(sum+queue): ', total)
-            # same = queue[i]
-            queue_0 = queue[0]
-            # print('sum == l: ', sum) 
-            for j in range(len(queue)):
-                if j == (len(queue)-1):
-                    queue[j] = queue_0
-                else:
-                    queue[j] = queue[j+1]
-            # print(queue)
-            # print(i)
-        elif (sum + queue[i]) > l:
-            # print('sum > l: ', sum)
-            queue_0 = queue[0]
-            # sum += queue[i]
-            # if sum == l:
-                # queue[i] = queue[i+1]
-            for j in range(len(queue)):
-                if j == (len(queue)-1):
-                    queue[j] = queue_0
-                else:
-                    queue[j] = queue[j+1]
-            # print(queue)
-            # print(i)
-        # print('sum_one-circle: ', sum)
+        while sum >= l:
+            break
+        else:
+            if (sum + queue[i]) < l:
+                sum += queue[i]
+                print('print sum: ', sum)
+                count += 1    
+                print('print_count: ', count)
+                total += sum
+                
+            elif (sum + queue[i]) == l:
+                sum += queue[i]
+                total += sum 
+                count +=1
+                for i in range(count):
+                    queue = queue[count:] + queue[:count]
+                
+            elif (sum + queue[i]) > l:
+                for i in range(count):
+                    queue = queue[count:] + queue[:count]
+         
+    print('After one-circle: ',total)
+    print(queue)
 # print(sum)
 
 # Write an answer using print
