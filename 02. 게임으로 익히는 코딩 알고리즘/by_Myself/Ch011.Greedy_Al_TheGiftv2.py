@@ -54,12 +54,13 @@ else:
             print(budgets[i])
             price -= budgets[i]
             num  -=1
-        elif budgets[i] > mean_price:
+        elif i == (len(budgets)-1):
+            print(price)
+        elif budgets[i] >= mean_price:
             print(mean_price)
             price -= mean_price
             num -= 1
-        elif i == (len(budgets)-1):
-            print(price)
+        
        
 # Write an action using print
 # To debug: print("Debug messages...", file=sys.stderr)
