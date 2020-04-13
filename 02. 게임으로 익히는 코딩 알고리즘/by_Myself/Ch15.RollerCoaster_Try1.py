@@ -22,34 +22,27 @@ for i in range(c):
     sum = 0
     print("initialization sum: ", sum)
     count = 0
-    for i in range(len(queue)):  # loop four times
-        while sum >= l:
-            break
+    Tqueue = queue
+    for i in range(len(Tqueue)):  # loop four times
+        # while sum >= l: 
+        if (sum + Tqueue[i]) < l:
+            sum += Tqueue[i]
+            print('print sum: ', sum)
+            count += 1    
+            print('print_count: ', count)
+            total += sum
+            Tqueue = Tqueue[count:] + Tqueue[:count]
+            print("Tqueue: ", Tqueue)
+
+        elif (sum + Tqueue[i]) == l:
+            sum += Tqueue[i]
+            total += sum 
+            count +=1
+            for i in range(count):
+                Tqueue = Tqueue[count:] + Tqueue[:count]
         else:
-            if (sum + queue[i]) < l:
-                sum += queue[i]
-                print('print sum: ', sum)
-                count += 1    
-                print('print_count: ', count)
-                total += sum
-                
-            elif (sum + queue[i]) == l:
-                sum += queue[i]
-                total += sum 
-                count +=1
-                for i in range(count):
-                    queue = queue[count:] + queue[:count]
-                
-            elif (sum + queue[i]) > l:
-                for i in range(count):
-                    queue = queue[count:] + queue[:count]
-         
-    print('After one-circle: ',total)
-    print(queue)
-# print(sum)
-
-# Write an answer using print
-# To debug: print("Debug messages...", file=sys.stderr)
-
+            break
+    print(Tqueue)
 print("answer")
 print("total: ", total)
+print("Tqueue: ", Tqueue)
